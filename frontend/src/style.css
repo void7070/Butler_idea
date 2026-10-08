@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+/* 디자인 토큰 (창 21) — 목업 ../mockup/index.html :root 라이트 값. 다크 모드 없음.
+   색: bg-ground, text-ink-2, border-line, bg-crit-soft … / 글꼴: font-sans, font-mono
+   모서리: rounded-card(14) · rounded-btn(12) · rounded-chip(99) */
+@theme {
+  --color-ground: #EEF1F0;
+  --color-panel: #F7F9F8;
+  --color-surface: #FFFFFF;
+  --color-surface-2: #F3F6F5;
+  --color-ink: #15201C;
+  --color-ink-2: #4B5A55;
+  --color-ink-3: #7C8984;
+  --color-line: #DCE3E0;
+  --color-accent: #0E6B5C;
+  --color-accent-ink: #FFFFFF;
+  --color-accent-soft: #DDEFEA;
+  --color-seal: #34479E;
+  --color-seal-soft: #E4E8F7;
+  --color-ok: #1E7F4E;
+  --color-ok-soft: #DDF1E5;
+  --color-warn: #A0600C;
+  --color-warn-soft: #FBEBD2;
+  --color-crit: #B83A28;
+  --color-crit-soft: #F8E0DB;
+
+  /* 발표장 인터넷이 끊겨도 대체 글꼴로 보이게 */
+  --font-sans: "IBM Plex Sans KR", "Malgun Gothic", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Consolas, "Malgun Gothic", monospace;
+
+  --radius-card: 14px;
+  --radius-btn: 12px;
+  --radius-chip: 99px;
+}
+
+@layer base {
+  html,
+  body {
+    background: var(--color-ground);
+  }
+  body {
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  /* 금액·날짜·해시·D-day */
+  .num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media print {
+  html,
+  body {
+    background: #fff;
+  }
+}
